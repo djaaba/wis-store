@@ -1,0 +1,23 @@
+img{
+    width: 200px;
+    height: 200px;
+}
+.product-list{
+    display: flex;
+    h3{
+        text-align: center;
+    }
+    .product-list__buttons{
+        // text-align: center;
+        display: flex;
+        // align-items: center;
+        justify-content: center;
+        button{
+            border-radius: 10px;
+            border: 1px solid dimgray;
+            background-color: lightgray;
+            font-weight: 900;
+        }
+        
+    }
+}

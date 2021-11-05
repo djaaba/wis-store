@@ -1,0 +1,31 @@
+<header>
+    <div class="wrapper">
+        <a routerLink="/">
+            Главная
+        </a>
+
+        <a routerLink="/busket">
+            Корзина
+        </a>
+    </div>
+    <div class="wrapper">
+        <div class="container">
+            <fa-icon [icon]="faHeart"></fa-icon>
+            <h3>
+                {{ likedCount }}
+            </h3>
+        </div>
+
+        <fa-icon [icon]="faShoppingCart"></fa-icon>
+        <div class="container">
+            <h3>
+                В корзине :
+                {{ busketCount }}
+            </h3>
+            <h3>
+                На сумму
+                {{ price }}
+            </h3>
+        </div>
+    </div>
+</header>
