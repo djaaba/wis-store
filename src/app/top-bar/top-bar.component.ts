@@ -7,7 +7,7 @@ import { ProductService } from '../product.service';
   styleUrls: ['./top-bar.component.scss']
 })
 export class TopBarComponent implements OnInit {
-  title = 'app';
+  
   constructor(private productService: ProductService) {
   }
 

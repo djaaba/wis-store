@@ -7,6 +7,7 @@ import { Product } from './products';
 export class ProductService {
   itemsBusket: Product[] = [];
   itemsLike: Product[] = [];
+
   constructor() { }
 
   addToBusket(product: Product) {
@@ -23,5 +24,7 @@ export class ProductService {
 
   addToLike(product: Product) {
     this.itemsLike.push(product);
+    // if(!this.isliked){˚
+    // } 
   }
 }

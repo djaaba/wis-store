@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
+// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+// import { InMemoryDataService } from './in-memory-data.service';
 import { ProductListComponent } from './product-list/product-list.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { BusketComponent } from './busket/busket.component';
 
+import { AppRoutingModule } from './app-routing.module';
 import {MatDialogModule} from '@angular/material/dialog';
 import {DialogComponent, DialogContentExampleDialog} from './dialog/dialog.component';
 
@@ -24,20 +24,17 @@ import {DialogComponent, DialogContentExampleDialog} from './dialog/dialog.compo
     TopBarComponent,
     BusketComponent,
     DialogComponent,
-    DialogContentExampleDialog
+    DialogContentExampleDialog,
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([
-      { path: '', component: ProductListComponent },
-      { path: 'busket', component: BusketComponent },
-    ]),
     HttpClientModule,
     BrowserAnimationsModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-    InMemoryDataService, { dataEncapsulation: false }
-    ),
+    // HttpClientInMemoryWebApiModule.forRoot(
+    // InMemoryDataService, { dataEncapsulation: false }
+    // ),
     MatDialogModule
   ],
   entryComponents: [
