@@ -1,21 +1,41 @@
-h1{
-    background-color: grey;
-}
-
-header{
-    display: flex;
-    background-color: grey;
-    justify-content: space-between;
-    align-items: center;
-}
-.wrapper{
-    display: flex;
-    align-items: center;
-    vertical-align: middle;
-    h3{
-        padding: 5px 10px;
+.top-bar{
+    background-color:lightslategray;
+    &__wrapper{
+        display: flex;
+        justify-content: space-between;
+        margin: 0 20px;
+        padding: 10px 0;
+        align-items: center;
     }
-    fa-icon{
-        font-size: 30px;
+    &__container{
+        display: flex;
+    }
+    &__link{
+        margin: 0 5px;
+        text-transform: uppercase;
+        font-weight: bold;
+
+        cursor: pointer;
+    }
+    &__count{
+        font-weight: bold;
+    }
+    &__cart{
+        display: flex;
+        align-items: center;
+        
+    }
+    &__cart-container{
+        display: flex;
+        align-items: center;
+    }
+    &__like{
+        display: flex;
+        align-items: center;
+
+        margin-right: 10px;
+    }
+    .material-icons{
+        margin: 0 5px;
     }
 }

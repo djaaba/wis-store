@@ -1,31 +1,45 @@
-<header>
-    <div class="wrapper">
-        <a routerLink="/">
-            Главная
-        </a>
-
-        <a routerLink="/busket">
-            Корзина
-        </a>
-    </div>
-    <div class="wrapper">
-        <div class="container">
-            <fa-icon [icon]="faHeart"></fa-icon>
-            <h3>
-                {{ likedCount }}
-            </h3>
+<header class = "top-bar">
+    <div class="top-bar__wrapper">
+        <div class="top-bar__container">
+            <p class = "top-bar__link" routerLink="/">
+                Главная
+            </p>
+            <p class = "top-bar__link" routerLink="/busket">
+                Корзина
+            </p>
         </div>
-
-        <fa-icon [icon]="faShoppingCart"></fa-icon>
-        <div class="container">
-            <h3>
-                В корзине :
-                {{ busketCount }}
-            </h3>
-            <h3>
-                На сумму
-                {{ price }}
-            </h3>
+        <div class="top-bar__container">
+            <div class="top-bar__like">
+                <span class="material-icons">
+                    favorite
+                </span>
+                <p class = "top-bar__count">
+                    {{ likedCount }}
+                </p>
+            </div>
+            <div class="top-bar__cart">
+                <span class="material-icons">
+                    shopping_cart
+                </span>
+                <div class="top-bar__items">
+                    <div class="top-bar__cart-container">
+                        <p class="top-bar__text">
+                            В корзине:
+                        </p>
+                        <p class = "top-bar__count">
+                            &nbsp;{{ busketCount }}
+                        </p>
+                    </div>
+                    <div class="top-bar__cart-container">
+                        <p class="top-bar__text">
+                            На сумму:
+                        </p>
+                        <p class = "top-bar__count">
+                            &nbsp;{{ price }}
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </header>
