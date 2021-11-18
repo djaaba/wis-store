@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { faShoppingCart, faHeart } from '@fortawesome/free-solid-svg-icons';
-
 import { ProductService } from '../product.service';
 
 @Component({
@@ -9,12 +7,8 @@ import { ProductService } from '../product.service';
   styleUrls: ['./top-bar.component.scss']
 })
 export class TopBarComponent implements OnInit {
-  title = 'app';
-  faShoppingCart = faShoppingCart;
-  faHeart = faHeart;
-  // fas = fas;
+  
   constructor(private productService: ProductService) {
-
   }
 
   ngOnInit(): void {

@@ -4,6 +4,7 @@ export interface Product {
   price: number;
   description: string;
   src: string;
+  // isliked: Boolean;
 }
 
 export const products = [

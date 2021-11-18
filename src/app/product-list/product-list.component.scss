@@ -11,12 +11,13 @@ img{
         // text-align: center;
         display: flex;
         // align-items: center;
-        justify-content: center;
+        justify-content: space-around;
         button{
             border-radius: 10px;
             border: 1px solid dimgray;
             background-color: lightgray;
             font-weight: 900;
+            width: 45%;
         }
         
     }
