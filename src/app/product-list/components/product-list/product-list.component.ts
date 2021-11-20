@@ -1,10 +1,11 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Product, products } from '../../products';
 import { ProductService } from '../../product.service';
 
-import {MatDialog} from '@angular/material/dialog';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-product-list',
@@ -22,11 +23,10 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(DialogContentExampleDialog);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+  openDialog(product: Product): void {
+    const dialogRef = this.dialog.open(DialogContentExampleDialog, {
+      width: '250px',
+      data: {name: product.name, src: product.src, price: product.price},
     });
   }
 
@@ -43,4 +43,13 @@ export class ProductListComponent implements OnInit {
   selector: 'dialog-content-example-dialog',
   templateUrl: '../dialog/dialog-content-example-dialog.html',
 })
-export class DialogContentExampleDialog {}
+export class DialogContentExampleDialog {
+  constructor(
+    public dialogRef: MatDialogRef<DialogContentExampleDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: Product,
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
