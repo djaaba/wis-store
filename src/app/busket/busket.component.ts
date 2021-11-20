@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 
-import { ProductService } from '../cart/product.service';
+import { ProductService } from '../product-list/product.service';
 
 @Component({
   selector: 'app-busket',

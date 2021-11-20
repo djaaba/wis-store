@@ -7,7 +7,8 @@ const routes: Routes = [
   {
     path: '',
     component: ProductListComponent
-  }
+  },
+  
 ];
 
 @NgModule({
@@ -18,4 +19,4 @@ const routes: Routes = [
     RouterModule
   ]
 })
-export class CartRoutingModule { }
+export class ProductListRoutingModule { }
