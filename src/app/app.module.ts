@@ -3,42 +3,37 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientModule } from '@angular/common/http';
 
-// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-// import { InMemoryDataService } from './in-memory-data.service';
-import { ProductListComponent } from './product-list/product-list.component';
-import { TopBarComponent } from './top-bar/top-bar.component';
 import { BusketComponent } from './busket/busket.component';
 
 import { AppRoutingModule } from './app-routing.module';
-import {MatDialogModule} from '@angular/material/dialog';
-import {DialogComponent, DialogContentExampleDialog} from './dialog/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent, DialogContentExampleDialog } from './dialog/dialog.component';
+import { CartModule } from './cart/cart.module';
+
+import { LayoutModule } from './layout/layout.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent,
-    TopBarComponent,
     BusketComponent,
     DialogComponent,
     DialogContentExampleDialog,
   ],
   imports: [
+    LayoutModule,
+    CartModule,
     AppRoutingModule,
+
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
-    // HttpClientInMemoryWebApiModule.forRoot(
-    // InMemoryDataService, { dataEncapsulation: false }
-    // ),
-    MatDialogModule
+    MatDialogModule,
   ],
   entryComponents: [
-    
+
   ],
   providers: [],
   bootstrap: [

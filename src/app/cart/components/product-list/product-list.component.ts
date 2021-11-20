@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Product, products } from '../products';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Product, products } from '../../products';
 
 import { ActivatedRoute } from '@angular/router';
 
-import { ProductService } from '../product.service';
+import { ProductService } from '../../product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -11,6 +11,10 @@ import { ProductService } from '../product.service';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
+
+  @Output()
+  public cock = new EventEmitter();
+
   products = products;
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
 

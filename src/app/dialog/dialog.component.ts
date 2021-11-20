@@ -8,21 +8,15 @@ import {MatDialog} from '@angular/material/dialog';
   styleUrls: ['./dialog.component.scss']
 })
 export class DialogComponent implements OnInit {
+
   constructor(public dialog: MatDialog) {}
-  // container = document.querySelector(".container");
-  openDialog($event : any) {
-    console.log($event.target);
-    // $event?.stopImmediatePropagation();
+
+  openDialog() {
     const dialogRef = this.dialog.open(DialogContentExampleDialog);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
-    // const dialogRef = this.dialog.open(DialogContentExampleDialog);
-
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log(`Dialog result: ${result}`);
-    // });
   }
 
   ngOnInit(): void {
@@ -35,5 +29,3 @@ export class DialogComponent implements OnInit {
   templateUrl: 'dialog-content-example-dialog.html',
 })
 export class DialogContentExampleDialog {}
-
-// @HostListener('click', ['$event'])
