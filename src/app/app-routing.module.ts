@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { BusketComponent } from './busket/busket.component';
-import { ProductListComponent } from './product-list/components/product-list/product-list.component';
 const routes: Routes = [
-  {
-    path: 'busket',
-    component: BusketComponent
-  },
+  // {
+  //   path: '',
+  //   pathMatch: 'full',
+  //   redirectTo: ''
+  // },
   {
     path: '',
-    // loadChildren: () => import('./product-list/product-list.module').then((m) => m.ProductListModule)
-    component: ProductListComponent
+    loadChildren: () => import('./product-list/product-list.module').then((m) => m.ProductListModule)
+  },
+  {
+    path: 'cart',
+    loadChildren: () => import('./cart/cart.module').then(m => m.CartModule)
   },
 ];
 

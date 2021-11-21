@@ -6,30 +6,26 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import { BusketComponent } from './busket/busket.component';
-
 import { AppRoutingModule } from './app-routing.module';
 
 import { LayoutModule } from './layout/layout.module';
-import { ProductListModule } from './product-list/product-list.module';
-import { ProductListRoutingModule } from './product-list/product-list-routing.module';
-import { RouterModule } from '@angular/router';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BusketComponent,
   ],
   imports: [
     LayoutModule,
-    ProductListModule,
-    AppRoutingModule,
-    ProductListRoutingModule,
 
-    RouterModule,
-
+    BrowserAnimationsModule,
+    FormsModule,
     BrowserModule,
     ReactiveFormsModule,
+    AppRoutingModule,
     HttpClientModule,
   ],
   entryComponents: [

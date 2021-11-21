@@ -3,15 +3,14 @@ import { CommonModule } from '@angular/common';
 
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 
-import { AppRoutingModule } from '../app-routing.module';
-
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     TopBarComponent,
   ],
   imports: [
     CommonModule,
-    AppRoutingModule,
+    RouterModule
   ],
   exports: [
     TopBarComponent

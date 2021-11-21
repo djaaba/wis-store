@@ -1,5 +1,4 @@
 import { Component, OnInit, Output, EventEmitter, Inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 import { Product, products } from '../../products';
 import { ProductService } from '../../product.service';
@@ -15,7 +14,6 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 export class ProductListComponent implements OnInit {
   products = products;
   constructor(
-    private route: ActivatedRoute, 
     private productService: ProductService,
     public dialog: MatDialog,
   ) { }
