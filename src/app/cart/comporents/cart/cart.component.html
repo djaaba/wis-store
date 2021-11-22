@@ -1,7 +1,13 @@
-<div *ngIf="!itemsBusket.length" class="">
-    <p>Корзина пустая!</p>
-</div>
+<div class="cart">
+    <h1 class="cart__empty" *ngIf="!itemsCart.length">
+        <p>Ваша корзина пока пустая!</p>
+    </h1>
 
-<div class="busket-item" *ngFor="let item of itemsBusket">
-    <p>{{ item.name }} : {{ item.price }} </p>
+    <div class="cart__item" *ngFor="let item of itemsCart">
+        <p>{{ item.name }} : {{ getNumber(item.price) }} </p>
+    </div>
+
+    <p class="cart__total-price" *ngIf="itemsCart.length">
+        Всего к оплате: {{ price }}
+    </p>
 </div>

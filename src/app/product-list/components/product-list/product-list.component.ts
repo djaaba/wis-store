@@ -24,17 +24,28 @@ export class ProductListComponent implements OnInit {
 
   openDialog(product: Product): void {
     const dialogRef = this.dialog.open(DialogComponent, {
-      width: '600px',
+      width: '420px',
       data: { name: product.name.substr(product.name.indexOf(" ") + 1), img: product.img, price: product.price },
     });
   }
 
-  addToLike(product: Product): void {
-    this.productService.addToLike(product)
+  addToFavorite(product: Product, event: any): void {
+    event.stopPropagation();
+    this.productService.addToFavorite(product)
+    if (product.isliked){
+      event.target.style.color = "lightslategray"
+    }else{
+      event.target.style.color = "inherit"
+    }
+    // но при переходе на другую стриницу цвета пропадают, с toggle также почему-то
   }
 
-  addToBusket(product: Product): void {
-    this.productService.addToBusket(product)
+  addToCart(product: Product, event: any): void {
+    event.stopPropagation();
+    this.productService.addToCart(product)
+  }
+
+  getNumber(value: any){
+    return this.productService.getNiceNum(value);
   }
 }
-

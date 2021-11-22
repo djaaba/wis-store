@@ -3,15 +3,15 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/product-list/product.service';
 
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+  selector: 'app-favorite',
+  templateUrl: './favorite-list.component.html',
+  styleUrls: ['./favorite-list.component.scss']
 })
-export class CartComponent implements OnInit {
-  itemsCart = this.productService.getItemsCart();
+export class FavoriteComponent implements OnInit {
 
   constructor(public productService: ProductService) { }
-  // В чем отличие указывать private/public для проекта?
+
+  itemsFavorite = this.productService.getItemsFavorite();
 
   ngOnInit(): void {
   }
@@ -23,7 +23,7 @@ export class CartComponent implements OnInit {
   // как правильней? getNumber() или price
 
   get price(): string {
-    let sum =  this.productService.itemsCart.reduce(function (accumuator, currentValue) {
+    let sum =  this.productService.itemsFavorite.reduce(function (accumuator, currentValue) {
       return accumuator + currentValue.price;
     }, 0)
     return String(sum).replace(/(\d)(?=(\d{3})+(\D|$))/g, '$1 ') + " руб"

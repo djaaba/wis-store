@@ -8,6 +8,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { ProductListRoutingModule } from './product-list-routing.module';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
     DialogComponent,
   ],
   imports: [
+    FormsModule,
     CommonModule,
     MatDialogModule,
     RouterModule,

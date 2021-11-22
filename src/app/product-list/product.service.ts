@@ -5,26 +5,37 @@ import { Product } from './products';
   providedIn: 'root'
 })
 export class ProductService {
-  itemsBusket: Product[] = [];
-  itemsLike: Product[] = [];
+  itemsCart: Product[] = [];
+  itemsFavorite: Product[] = [];
 
   constructor() { }
 
-  addToBusket(product: Product) {
-    this.itemsBusket.push(product);
+  addToCart(product: Product) {
+    this.itemsCart.push(product);
   }
 
-  getItemsBusket() {
-    return this.itemsBusket;
-  }
-  
-  getItemsLike() {
-    return this.itemsLike;
+  getItemsCart() {
+    return this.itemsCart;
   }
 
-  addToLike(product: Product) {
-    this.itemsLike.push(product);
-    // if(!this.isliked){˚
-    // } 
+  getItemsFavorite() {
+    return this.itemsFavorite;
+  }
+
+  addToFavorite(product: Product) {
+    if (!product.isliked) {
+      this.itemsFavorite.push(product);
+      product.isliked = true;
+    }
+    else {
+      const index = this.itemsFavorite.indexOf(product);
+      if (index > -1) {
+        this.itemsFavorite.splice(index, 1);
+      }
+      product.isliked = false;
+    }
+  }
+  getNiceNum(value: any): string {
+    return String(value).replace(/(\d)(?=(\d{3})+(\D|$))/g, '$1 ')
   }
 }

@@ -1,0 +1,13 @@
+<div class="favorite">
+    <h1 class="favorite__empty" *ngIf="!itemsFavorite.length">
+        <p>Ваш список избранного пока пуст!</p>
+    </h1>
+
+    <div class="favorite__item" *ngFor="let item of itemsFavorite">
+        <p>{{ item.name }} : {{ getNumber(item.price) }} </p>
+    </div>
+
+    <p class="favorite__total-price" *ngIf="itemsFavorite.length">
+        Вы добавили в избранное товары на сумму: {{ price }}
+    </p>
+</div>

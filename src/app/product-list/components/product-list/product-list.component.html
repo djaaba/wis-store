@@ -5,16 +5,16 @@
       {{ product.name }}
     </p>
     <p class="product__price">
-      {{ product.price }} руб
+      {{ getNumber(product.price) }} руб
     </p>
     <div class="product__buttons">
-      <button (click)="addToBusket(product)">
+      <button (click)="addToCart(product, $event)">
         <span class="material-icons">
           shopping_cart
         </span>
         В Корзину
       </button>
-      <button (click)="addToLike(product)">
+      <button (click)="addToFavorite(product, $event)">
         <span class="material-icons">
           favorite
         </span>

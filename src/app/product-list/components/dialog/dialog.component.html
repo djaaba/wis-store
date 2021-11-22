@@ -5,18 +5,21 @@
   <div class="dialog__content" mat-dialog-content>
     <img class="dialog__img" [src]="data.img" alt="">
     <div class="dialog__container">
-      <p class="dialog__name">{{data.name}}</p>
-      <div class="dialog__input-container">
-        <p class="dialog__input-text">Кол-во:&nbsp;</p>
-        <input class="dialog__input" matInput type="number" value="1">
+      <p class="dialog__name dialog__font">{{data.name}}</p>
+      <div class="dialog__inner-container">
+        <p class="dialog__input-text dialog__font">Кол-во:&nbsp;</p>
+        <input class="dialog__input" matInput type="number" #input [(ngModel)]="value" min=0>
       </div>
-      <p class="dialog__price">Сумма: {{data.price}}</p>
-      <button class="dialog__button">
-        <span class="material-icons">
-          shopping_cart
-        </span>
-        Добавить!
-      </button>
+      <div class="dialog__inner-container dialog__font">
+        <p class="dialog__price-text">Сумма:</p>
+        <p class="dialog__price-number">{{ getSum() }}</p>
+      </div>
     </div>
   </div>
+  <button class="dialog__button" (click)="addToCart()">
+    <span class="material-icons">
+      shopping_cart
+    </span>
+    Добавить!
+  </button>
 </div>

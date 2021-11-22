@@ -14,7 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     LayoutModule,
 
-    BrowserAnimationsModule, // без него не могу открывать диалог
+    BrowserAnimationsModule,
     AppRoutingModule,
   ],
   entryComponents: [
