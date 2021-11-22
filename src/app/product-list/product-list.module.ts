@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { ProductListComponent } from './components/product-list/product-list.component';
 
 import { MatDialogModule } from '@angular/material/dialog';
-import { DialogContentExampleDialog } from './components/product-list/product-list.component';
 
 import { ProductListRoutingModule } from './product-list-routing.module';
 import { DialogComponent } from './components/dialog/dialog.component';
@@ -13,14 +12,13 @@ import { DialogComponent } from './components/dialog/dialog.component';
 @NgModule({
   declarations: [
     ProductListComponent,
-    DialogContentExampleDialog,
     DialogComponent,
   ],
   imports: [
     CommonModule,
     MatDialogModule,
     RouterModule,
-    ProductListRoutingModule
+    ProductListRoutingModule,
   ],
   exports: [
   ]
