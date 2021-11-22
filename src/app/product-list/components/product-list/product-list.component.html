@@ -1,6 +1,6 @@
 <h2>Products</h2>
-<div class="product-list">
-  <div *ngFor="let product of products">
+<div class="product__list">
+  <div product__elem *ngFor="let product of products">
     <img [src]="product.src" alt="phone">
     <h3>
       {{ product.name }}
@@ -11,7 +11,7 @@
     <div class="product-list__buttons">
       <button (click)="addToBusket(product)">Корзина</button>
       <button (click)="addToLike(product)">Лайк</button>
-      <button (click)="openDialog(product)">Pick one</button>
+      <button (click)="openDialog(product)">Диалог</button>
     </div>
   </div>
 </div>

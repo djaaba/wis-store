@@ -4,8 +4,10 @@ import { RouterModule } from '@angular/router';
 
 import { ProductListComponent } from './components/product-list/product-list.component';
 
-// import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { DialogContentExampleDialog } from './components/product-list/product-list.component';
+
+import { ProductListRoutingModule } from './product-list-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,12 +16,11 @@ import { DialogContentExampleDialog } from './components/product-list/product-li
   ],
   imports: [
     CommonModule,
-    // MatDialogModule
-    RouterModule
+    MatDialogModule,
+    RouterModule,
+    ProductListRoutingModule
   ],
   exports: [
-    ProductListComponent,
-    DialogContentExampleDialog,
   ]
 })
 export class ProductListModule { }
