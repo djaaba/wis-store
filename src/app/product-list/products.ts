@@ -3,7 +3,7 @@ export interface Product {
   name: string;
   price: number;
   description: string;
-  src: string;
+  img: string;
   // isliked: Boolean;
 }
 
@@ -13,21 +13,21 @@ export const products = [
     name: 'Apple Iphone 5s',
     price: 59100,
     description: 'A large phone with one of the best screens',
-    src: 'https://img.mvideo.ru/Pdb/30016818b.jpg'
+    img: 'https://img.mvideo.ru/Pdb/30016818b.jpg'
   },
   {
     id: 2,
     name: 'Apple Iphone 6',
     price: 69100,
     description: 'A great phone with one of the best cameras',
-    src: 'https://img.mvideo.ru/Pdb/30016818b.jpg'
+    img: 'https://img.mvideo.ru/Pdb/30028155b.jpg'
   },
   {
     id: 3,
     name: 'Apple Iphone 6s',
     price: 79100,
     description: '',
-    src: 'https://img.mvideo.ru/Pdb/30016818b.jpg'
+    img: 'https://img.mvideo.ru/Pdb/30038657b.jpg'
   },
 ];
 

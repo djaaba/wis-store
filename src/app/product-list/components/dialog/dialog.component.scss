@@ -1,0 +1,50 @@
+.dialog {
+  background-color: lightslategray;
+  font-weight: bold;
+
+  &__content{
+      display: flex;
+  }
+
+  &__container{
+
+  }
+
+  &__name {
+  }
+
+  &__content {
+    width: 100%;
+  }
+
+  &__input {
+    width: 50px;
+  }
+
+  &__img {
+    width: 150px;
+    height: 150px;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 0px;
+    border-radius: 4px;
+    background-color: #61a84b;
+
+    color: white
+  }
+}
+
+.mat-dialog-container {}
+
+::ng-deep.mat-dialog-container {
+  padding: 0px;
+  overflow: unset;
+
+  border-radius: 10px,
+
+}

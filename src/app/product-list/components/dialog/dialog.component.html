@@ -1,0 +1,22 @@
+<div class="dialog">
+  <h3 class="dialog__text">
+    Добавить в корзину
+  </h3>
+  <div class="dialog__content" mat-dialog-content>
+    <img class="dialog__img" [src]="data.img" alt="">
+    <div class="dialog__container">
+      <p class="dialog__name">{{data.name}}</p>
+      <div class="dialog__input-container">
+        <p class="dialog__input-text">Кол-во:&nbsp;</p>
+        <input class="dialog__input" matInput type="number" value="1">
+      </div>
+      <p class="dialog__price">Сумма: {{data.price}}</p>
+      <button class="dialog__button">
+        <span class="material-icons">
+          shopping_cart
+        </span>
+        Добавить!
+      </button>
+    </div>
+  </div>
+</div>
