@@ -1,9 +1,11 @@
 .cart {
-  width: 1200px;
-  margin: 50px auto;
-
+  
   &__item {
     margin-bottom: 10px;
+
+    width: 300px;
+    height: 150px;
+    background-color: lightslategray;
   }
 
   &__empty {

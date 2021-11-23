@@ -5,6 +5,10 @@ export interface Product {
   isliked: Boolean;
 }
 
+export interface IProduct{
+  item: Product;
+  count: number;
+}
 export const products = [
   {
     name: 'Apple Iphone 5s',

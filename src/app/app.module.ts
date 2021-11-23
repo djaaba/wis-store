@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { LayoutModule } from './layout/layout.module';
 
-import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({

@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, Input } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Product, products } from '../../products';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Product } from '../../products';
 
 import { ProductService } from '../../product.service';
 
@@ -11,6 +11,8 @@ import { ProductService } from '../../product.service';
 })
 export class DialogComponent implements OnInit {
   value: number = 1;
+
+  // name = new FormControl('');
 
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
@@ -23,16 +25,16 @@ export class DialogComponent implements OnInit {
   }
 
   addToCart(): void {
-    while (this.value != 0) {
+    while (this.value !== 0) {
       this.productService.addToCart(this.data)
       this.value--;
     }
     this.value = 1;
   }
 
-  getSum(): string {
-    return this.productService.getNiceNum(this.value * this.data.price);
-  }
+  // getSum(): string {
+  //   return this.productService.getNiceNum(this.value * this.data.price);
+  // }
 
   ngOnInit(): void {
   }

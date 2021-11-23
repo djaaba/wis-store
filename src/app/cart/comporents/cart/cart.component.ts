@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
 import { ProductService } from 'src/app/product-list/product.service';
-
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -10,7 +8,9 @@ import { ProductService } from 'src/app/product-list/product.service';
 export class CartComponent implements OnInit {
   itemsCart = this.productService.getItemsCart();
 
-  constructor(public productService: ProductService) { }
+  constructor(
+    public productService: ProductService
+    ) { }
   // В чем отличие указывать private/public для проекта?
 
   ngOnInit(): void {

@@ -10,6 +10,8 @@ import { ProductListRoutingModule } from './product-list-routing.module';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { FormsModule } from '@angular/forms';
 
+import { DialogCardModule } from '../dialog-card/dialog-card.module';
+
 @NgModule({
   declarations: [
     ProductListComponent,
@@ -21,6 +23,7 @@ import { FormsModule } from '@angular/forms';
     MatDialogModule,
     RouterModule,
     ProductListRoutingModule,
+    DialogCardModule
   ],
   exports: [
   ]

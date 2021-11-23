@@ -1,8 +1,6 @@
 .product {
   &__list {
     display: grid;
-    max-width: 1200px;
-    margin: 50px auto;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 50px;
     list-style: none;
