@@ -20,11 +20,11 @@ export class CartComponent implements OnInit {
     return this.productService.getNiceNum(value) + " руб";
   }
 
-  // как правильней? getNumber() или price
+  // как правильней функцией или геттером?
 
   get price(): string {
-    let sum =  this.productService.itemsCart.reduce(function (accumuator, currentValue) {
-      return accumuator + currentValue.price;
+    let sum = this.productService.itemsCart.reduce(function (accumuator, currentValue) {
+      return accumuator + currentValue.price * currentValue.counter;
     }, 0)
     return String(sum).replace(/(\d)(?=(\d{3})+(\D|$))/g, '$1 ') + " руб"
   }

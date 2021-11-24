@@ -1,5 +1,6 @@
 <div class="order-sheet">
-    <h1 class="order-sheet__title">Пожалуйста, заполните форму!</h1>
+    <h1 *ngIf=!submitted class="order-sheet__title">Пожалуйста, заполните форму!</h1>
+    <h1 *ngIf=submitted class="order-sheet__title">Спасибо за заказ!</h1>
     <div [hidden]="submitted">
         <form class="order-sheet__forms" (ngSubmit)="onSubmit()" #orderForm="ngForm">
             <div class="order-sheet__form">
@@ -91,7 +92,7 @@
             </div>
 
             <p>
-                {{ data | json }}
+                {{ orderForm.value | json }}
             </p>
         </form>
     </div>

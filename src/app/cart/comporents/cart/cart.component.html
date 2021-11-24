@@ -6,5 +6,10 @@
         <app-dialog-card [item]="item"></app-dialog-card>
     </ng-container>
 
-    <button class="cart__button" *ngIf="itemsCart.length" routerLink="/order-sheet">Оформить заказ</button>
+    <div *ngIf="itemsCart.length" class="cart__container">
+        <p class="cart__total-price">
+            Вы добавили товары на сумму: {{ price }}
+        </p>
+        <button class="cart__button"  routerLink="/order-sheet">Оформить заказ</button>
+    </div>
 </div>
