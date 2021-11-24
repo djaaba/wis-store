@@ -1,15 +1,10 @@
-<!-- <div class="cart">
-    <h1 class="cart__empty" *ngIf="!itemsCart.length">
-        <p>Ваша корзина пока пустая!</p>
-    </h1>
+<div class="cart">
+    <ng-container *ngIf="!itemsCart.length">
+        <h1 class="cart__empty">Ваша корзина пока пустая!</h1>
+    </ng-container>
+    <ng-container *ngFor="let item of itemsCart">
+        <app-dialog-card [item]="item"></app-dialog-card>
+    </ng-container>
 
-    <div class="cart__item" *ngFor="let item of itemsCart">
-        <p>{{ item.name }} : {{ getNumber(item.price) }} </p>
-    </div>
-
-    <p class="cart__total-price" *ngIf="itemsCart.length">
-        Всего к оплате: {{ price }}
-    </p>
-</div> -->
-<app-dialog-card></app-dialog-card>
-<!-- <app-dialog></app-dialog> -->
+    <button class="cart__button" *ngIf="itemsCart.length" routerLink="/order-sheet">Оформить заказ</button>
+</div>

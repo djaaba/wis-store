@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ProductListComponent } from './components/product-list/product-list.component';
 import { Product } from './products';
 
 @Injectable({
@@ -11,7 +12,12 @@ export class ProductService {
   constructor() { }
 
   addToCart(product: Product) {
-    this.itemsCart.push(product);
+    if (!this.itemsCart.includes(product)) {
+      this.itemsCart.push(product)
+    } else {
+      let index = this.itemsCart.indexOf(product);
+      this.itemsCart[index].counter++;
+    }
   }
 
   getItemsCart() {

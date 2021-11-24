@@ -13,6 +13,7 @@ const routes: Routes = [
   { 
     path: 'favorite', 
     loadChildren: () => import('./favorite-list/favorite-list.module').then(m => m.FavoriteModule) },
+  { path: 'order-sheet', loadChildren: () => import('./order-sheet/order-sheet.module').then(m => m.OrderSheetModule) },
 ];
 
 @NgModule({

@@ -2,8 +2,8 @@
   <h3 class="dialog__text">
     Добавить в корзину
   </h3>
-  <app-dialog-card></app-dialog-card>
-  <button class="dialog__button" (click)="addToCart()">
+  <app-dialog-card [item]="data"></app-dialog-card>
+  <button class="dialog__button" (click)="addToCart(data)">
     <span class="material-icons">
       shopping_cart
     </span>

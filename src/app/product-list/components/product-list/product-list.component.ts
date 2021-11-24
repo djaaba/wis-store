@@ -7,6 +7,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 
 import { DialogComponent } from '../dialog/dialog.component';
 
+
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -14,6 +15,7 @@ import { DialogComponent } from '../dialog/dialog.component';
 })
 export class ProductListComponent implements OnInit {
   products = products;
+
   constructor(
     private productService: ProductService,
     public dialog: MatDialog,
@@ -25,7 +27,7 @@ export class ProductListComponent implements OnInit {
   openDialog(product: Product): void {
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '420px',
-      data: { name: product.name.substr(product.name.indexOf(" ") + 1), img: product.img, price: product.price },
+      data: { name: product.name.substr(product.name.indexOf(" ") + 1), img: product.img, price: product.price, counter: product.counter },
     });
   }
 

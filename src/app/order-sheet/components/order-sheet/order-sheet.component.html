@@ -1,0 +1,98 @@
+<div class="order-sheet">
+    <h1 class="order-sheet__title">Пожалуйста, заполните форму!</h1>
+    <div [hidden]="submitted">
+        <form class="order-sheet__forms" (ngSubmit)="onSubmit()" #orderForm="ngForm">
+            <div class="order-sheet__form">
+                <label for="name">Ваши ФИО</label>
+                <input type="text" 
+                        class="form-control" 
+                        id="name" 
+                        required 
+                        [(ngModel)]="data.name" 
+                        name="name"
+                        #name="ngModel">
+                <div [hidden]="name.valid || name.pristine" class="error">
+                    Это поле обязательное!
+                </div>
+            </div>
+
+            <div class="order-sheet__form">
+                <label for="email">Ваш email</label>
+                <input type="email"
+                        pattern="^((([0-9A-Za-z]{1}[-0-9A-z\.]{0,30}[0-9A-Za-z]?)|([0-9А-Яа-я]{1}[-0-9А-я\.]{0,30}[0-9А-Яа-я]?))@([-A-Za-z]{1,}\.){1,}[-A-Za-z]{2,})$"
+                        class="form-control" 
+                        id="email" 
+                        required 
+                        [(ngModel)]="data.email" 
+                        name="email" 
+                        #email="ngModel">
+                <div [hidden]="email.valid || email.pristine" class="error">
+                    Это поле обязательное!
+                </div>
+            </div>
+
+            <div class="order-sheet__form">
+                <label for="phone">Ваш номер телефона</label>
+                <input type="tel" 
+                        pattern="^((\+7|7|8)+([0-9]){10})$" 
+                        class="form-control" 
+                        id="phone" 
+                        required
+                        [(ngModel)]="data.phone" 
+                        name="phone" 
+                        #phone="ngModel">
+                <div [hidden]="phone.valid || phone.pristine" class="error">
+                    Это поле обязательное!
+                </div>
+            </div>
+
+            <div class="order-sheet__form">
+                <label for="address">Ваш адрес</label>
+                <input type="text" 
+                        class="form-control" 
+                        id="address"
+                        required 
+                        [(ngModel)]="data.address" 
+                        name="address"
+                        #address="ngModel">
+                <div [hidden]="address.valid || address.pristine" class="error">
+                    Это поле обязательное!
+                </div>
+            </div>
+
+            <div class="order-sheet__form">
+                <label for="comment">
+                    <p>Ваш комментарий</p>
+                </label>
+                <input type="text" 
+                        class="form-control" 
+                        id="comment" 
+                        [(ngModel)]="data.comment" 
+                        name="comment"
+                        #comment="ngModel">
+            </div>
+
+            <div class="order-sheet__form">
+                <label for="delivery">Доставка</label>
+                <select class="form-control" 
+                        id="delivery" 
+                        required 
+                        [(ngModel)]="data.delivery" 
+                        name="delivery"
+                        #delivery="ngModel">
+                    <option *ngFor="let case of deliveryPoints" [value]="case">{{case}}</option>
+                </select>
+                <div [hidden]="delivery.valid || delivery.pristine" class="error">
+                    Power is required
+                </div>
+            </div>
+            <div class="order-sheet__container">
+                <button class="order-sheet__button" type="submit" [disabled]="!orderForm.form.valid">Submit</button>
+            </div>
+
+            <p>
+                {{ data | json }}
+            </p>
+        </form>
+    </div>
+</div>

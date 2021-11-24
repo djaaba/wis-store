@@ -1,5 +1,5 @@
 .cart {
-  
+  margin-bottom: 50px;
   &__item {
     margin-bottom: 10px;
 
@@ -7,9 +7,21 @@
     height: 150px;
     background-color: lightslategray;
   }
-
   &__empty {
     text-align: center;
+  }
+
+  &__button{
+    display: flex;
+    margin: 50px auto;
+
+    font-weight: bold;
+
+    padding: 8px 20px;
+    background-color: lightslategray;
+
+    border: 1px solid grey;
+    border-radius: 5px;
   }
 
   &__total-price {

@@ -14,7 +14,13 @@ export class TopBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  get cartCount(): string {
+  get cartCounter(): number{
+    return this.productService.itemsCart.reduce(
+      (accumulator, currentValue) => accumulator + currentValue.counter,
+      0);
+  }
+
+  get cartCounterPostfix(): string {
     let prefix = '';
     switch (this.productService.itemsCart.length % 10) {
       case 1:
@@ -30,11 +36,12 @@ export class TopBarComponent implements OnInit {
         prefix = 'ов';
         break;
     }
-    return String(this.productService.itemsCart.length).replace(/(\d)(?=(\d{3})+(\D|$))/g, '$1 ') + ' товар' + prefix;
+    return ' товар' + prefix;
   }
+
   get price(): string {
     let sum = this.productService.itemsCart.reduce(function (accumuator, currentValue) {
-      return accumuator + currentValue.price;
+      return accumuator + currentValue.price * currentValue.counter;
     }, 0)
     return String(sum).replace(/(\d)(?=(\d{3})+(\D|$))/g, '$1 ') + " руб"
   }

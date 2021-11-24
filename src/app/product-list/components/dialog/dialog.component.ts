@@ -10,31 +10,22 @@ import { ProductService } from '../../product.service';
   styleUrls: ['./dialog.component.scss']
 })
 export class DialogComponent implements OnInit {
-  value: number = 1;
 
-  // name = new FormControl('');
-
+  @Input() itemsCart: Product[] = this.productService.itemsCart;
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
     private productService: ProductService,
     @Inject(MAT_DIALOG_DATA) public data: Product,
-  ) { }
+  ) { 
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
-  addToCart(): void {
-    while (this.value !== 0) {
-      this.productService.addToCart(this.data)
-      this.value--;
-    }
-    this.value = 1;
+  addToCart(product: Product): void {
+    this.productService.addToCart(product)
   }
-
-  // getSum(): string {
-  //   return this.productService.getNiceNum(this.value * this.data.price);
-  // }
 
   ngOnInit(): void {
   }

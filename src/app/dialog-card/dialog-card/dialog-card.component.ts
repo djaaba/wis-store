@@ -11,28 +11,17 @@ import { ProductService } from '../../product-list/product.service';
 })
 export class DialogCardComponent implements OnInit {
 
-  value: number = 1;
+  @Input() item!: Product;
 
-  itemsCart = this.productService.getItemsCart();
-
-  // @Input() data: Product;
   constructor(
     private productService: ProductService,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: Product,
-  ) { }
-
+    ) { }
+    
   ngOnInit(): void {
   }
 
-  addToCart(): void {
-    while (this.value !== 0) {
-      this.productService.addToCart(this.data)
-      this.value--;
-    }
-    this.value = 1;
-  }
-
   getSum(): string {
-    return this.productService.getNiceNum(this.value * this.data.price);
+    return this.productService.getNiceNum(this.data.counter * this.data.price);
   }
 }
