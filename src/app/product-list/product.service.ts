@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ProductListComponent } from './components/product-list/product-list.component';
-import { Product } from './products';
+import { Product, products } from './products';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +11,21 @@ export class ProductService {
   constructor() { }
 
   addToCart(product: Product) {
+    // if (this.itemsCart.length){
+    //   if (!this.itemsCart.includes(product)){
+    //     let index = this.itemsCart.indexOf(product);
+    //     this.itemsCart[index].counter++;
+    //   }else{
+    //     this.itemsCart.push(product)
+    //   }
+    // }else{
+    //   this.itemsCart.push(product)
+    // }
+
     if (!this.itemsCart.includes(product)) {
-      this.itemsCart.push(product)
+      this.itemsCart.push(product);
+      let index = this.itemsCart.indexOf(product);
+      this.itemsCart[index].counter++;
     } else {
       let index = this.itemsCart.indexOf(product);
       this.itemsCart[index].counter++;

@@ -6,6 +6,12 @@ import { OrderSheetComponent } from './components/order-sheet/order-sheet.compon
 
 import { FormsModule } from '@angular/forms';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
+import {MatSelectModule} from '@angular/material/select';
+import {MatRadioModule} from '@angular/material/radio';
+
 @NgModule({
   declarations: [
     OrderSheetComponent
@@ -14,6 +20,14 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     OrderSheetRoutingModule,
+
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
   ],
+  providers: [
+
+  ]
 })
 export class OrderSheetModule { }

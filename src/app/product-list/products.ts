@@ -4,7 +4,6 @@ export interface Product {
   price: number;
   img: string;
   isliked: Boolean;
-
   counter: number;
 }
 

@@ -24,7 +24,8 @@ export class DialogComponent implements OnInit {
   }
 
   addToCart(product: Product): void {
-    this.productService.addToCart(product)
+    this.productService.addToCart(product);
+    this.dialogRef.close();
   }
 
   ngOnInit(): void {

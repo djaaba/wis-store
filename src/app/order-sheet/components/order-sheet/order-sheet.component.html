@@ -1,18 +1,13 @@
-<div class="order-sheet">
+<!-- <div class="order-sheet">
     <h1 *ngIf=!submitted class="order-sheet__title">Пожалуйста, заполните форму!</h1>
     <h1 *ngIf=submitted class="order-sheet__title">Спасибо за заказ!</h1>
     <div [hidden]="submitted">
         <form class="order-sheet__forms" (ngSubmit)="onSubmit()" #orderForm="ngForm">
             <div class="order-sheet__form">
                 <label for="name">Ваши ФИО</label>
-                <input type="text" 
-                        class="form-control" 
-                        id="name" 
-                        required 
-                        [(ngModel)]="data.name" 
-                        name="name"
-                        #name="ngModel">
-                <div [hidden]="name.valid || name.pristine" class="error">
+                <input type="text" class="form-control" id="name" required [(ngModel)]="data.name" name="name"
+                    #name="ngModel">
+                <div [hidden]="name.valid || name.pristine || name.hasError('required')" class="error">
                     Это поле обязательное!
                 </div>
             </div>
@@ -20,13 +15,8 @@
             <div class="order-sheet__form">
                 <label for="email">Ваш email</label>
                 <input type="email"
-                        pattern="^((([0-9A-Za-z]{1}[-0-9A-z\.]{0,30}[0-9A-Za-z]?)|([0-9А-Яа-я]{1}[-0-9А-я\.]{0,30}[0-9А-Яа-я]?))@([-A-Za-z]{1,}\.){1,}[-A-Za-z]{2,})$"
-                        class="form-control" 
-                        id="email" 
-                        required 
-                        [(ngModel)]="data.email" 
-                        name="email" 
-                        #email="ngModel">
+                    pattern="^((([0-9A-Za-z]{1}[-0-9A-z\.]{0,30}[0-9A-Za-z]?)|([0-9А-Яа-я]{1}[-0-9А-я\.]{0,30}[0-9А-Яа-я]?))@([-A-Za-z]{1,}\.){1,}[-A-Za-z]{2,})$"
+                    class="form-control" id="email" required [(ngModel)]="data.email" name="email" #email="ngModel">
                 <div [hidden]="email.valid || email.pristine" class="error">
                     Это поле обязательное!
                 </div>
@@ -34,14 +24,8 @@
 
             <div class="order-sheet__form">
                 <label for="phone">Ваш номер телефона</label>
-                <input type="tel" 
-                        pattern="^((\+7|7|8)+([0-9]){10})$" 
-                        class="form-control" 
-                        id="phone" 
-                        required
-                        [(ngModel)]="data.phone" 
-                        name="phone" 
-                        #phone="ngModel">
+                <input type="tel" pattern="^((\+7|7|8)+([0-9]){10})$" class="form-control" id="phone" required
+                    [(ngModel)]="data.phone" name="phone" #phone="ngModel">
                 <div [hidden]="phone.valid || phone.pristine" class="error">
                     Это поле обязательное!
                 </div>
@@ -49,13 +33,8 @@
 
             <div class="order-sheet__form">
                 <label for="address">Ваш адрес</label>
-                <input type="text" 
-                        class="form-control" 
-                        id="address"
-                        required 
-                        [(ngModel)]="data.address" 
-                        name="address"
-                        #address="ngModel">
+                <input type="text" class="form-control" id="address" required [(ngModel)]="data.address" name="address"
+                    #address="ngModel">
                 <div [hidden]="address.valid || address.pristine" class="error">
                     Это поле обязательное!
                 </div>
@@ -65,23 +44,15 @@
                 <label for="comment">
                     <p>Ваш комментарий</p>
                 </label>
-                <input type="text" 
-                        class="form-control" 
-                        id="comment" 
-                        [(ngModel)]="data.comment" 
-                        name="comment"
-                        #comment="ngModel">
+                <input type="text" class="form-control" id="comment" [(ngModel)]="data.comment" name="comment"
+                    #comment="ngModel">
             </div>
 
             <div class="order-sheet__form">
                 <label for="delivery">Доставка</label>
-                <select class="form-control" 
-                        id="delivery" 
-                        required 
-                        [(ngModel)]="data.delivery" 
-                        name="delivery"
-                        #delivery="ngModel">
-                    <option *ngFor="let case of deliveryPoints" [value]="case">{{case}}</option>
+                <select class="form-control" id="delivery" required [(ngModel)]="data.delivery" name="delivery"
+                    #delivery="ngModel">
+                    <option *ngFor="let case of deliverySelect" [value]="case">{{case}}</option>
                 </select>
                 <div [hidden]="delivery.valid || delivery.pristine" class="error">
                     Power is required
@@ -90,10 +61,84 @@
             <div class="order-sheet__container">
                 <button class="order-sheet__button" type="submit" [disabled]="!orderForm.form.valid">Submit</button>
             </div>
-
-            <p>
-                {{ orderForm.value | json }}
-            </p>
         </form>
     </div>
-</div>
+</div> -->
+
+<form class="order-sheet" [hidden]="submitted" (ngSubmit)="onSubmit()" #orderForm="ngForm">
+    <mat-form-field class="order-sheet__form" appearance="outline">
+        <mat-label>Ваши ФИО</mat-label>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="data.name" name="address" matInput
+            #name="ngModel">
+
+        <mat-error *ngIf="name.hasError('required')">
+            Это <strong> обязательное поле </strong>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="order-sheet__form" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input type="email"
+            pattern="^((([0-9A-Za-z]{1}[-0-9A-z\.]{0,30}[0-9A-Za-z]?)|([0-9А-Яа-я]{1}[-0-9А-я\.]{0,30}[0-9А-Яа-я]?))@([-A-Za-z]{1,}\.){1,}[-A-Za-z]{2,})$"
+            class="form-control" id="email" required [(ngModel)]="data.email" name="email" matInput #email="ngModel">
+
+        <mat-error *ngIf="email.hasError('pattern')">
+            Неправильный Еmail
+        </mat-error>
+
+        <mat-error *ngIf="email.hasError('required')">
+            Это <strong> обязательное поле </strong>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="order-sheet__form" appearance="outline">
+        <mat-label>Номер телефона</mat-label>
+        <input type="tel" pattern="^((\+7|7|8)+([0-9]){10})$" class="form-control" id="phone" required
+            [(ngModel)]="data.phone" name="phone" matInput #phone="ngModel">
+
+        <mat-error *ngIf="phone.hasError('pattern')">
+            Неправильный номер
+        </mat-error>
+
+        <mat-error *ngIf="phone.hasError('required')">
+            Это <strong> обязательное поле </strong>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="order-sheet__form" appearance="outline">
+        <mat-label>Ваш комментарий</mat-label>
+        <textarea matInput type="textarea" id="comment" [(ngModel)]="data.comment" name="comment"
+            #comment="ngModel"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Способ получения</mat-label>
+        <mat-select id="delivery" required [(ngModel)]="data.delivery" name="delivery" #delivery="ngModel">
+            <mat-option *ngFor="let case of deliverySelect" [value]="case">{{case}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="order-sheet__form" appearance="outline" *ngIf="delivery.value === 'Доставка'">
+        <mat-label>Ваш адрес</mat-label>
+        <input type="text" class="form-control" id="address" required [(ngModel)]="data.address" name="address" matInput
+            #address="ngModel">
+
+        <mat-error *ngIf="address.hasError('required')">
+            Это <strong> обязательное поле </strong>
+        </mat-error>
+    </mat-form-field>
+
+    <div *ngIf="delivery.value === 'Самовывоз'">
+        <mat-radio-group class="order-sheet__radio-group" [(ngModel)]="data.store">
+            <mat-radio-button class="order-sheet__radio-button" required *ngFor="let case of storePoints"
+                [value]="case">
+                {{case}}
+            </mat-radio-button>
+
+        </mat-radio-group>
+    </div>
+
+    <div class="order-sheet__container">
+        <button class="order-sheet__button" type="submit" [disabled]="!orderForm.form.valid">Submit</button>
+    </div>
+</form>

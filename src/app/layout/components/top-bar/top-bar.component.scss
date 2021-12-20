@@ -12,11 +12,11 @@
     }
     &__link{
         margin-right: 10px;
-        text-transform: uppercase;
-        font-weight: bold;
 
+        text-transform: uppercase;
         text-decoration: none;
-        
+        font-weight: bold;
+        color: black;
         cursor: pointer;
         &:active{
             color: black;

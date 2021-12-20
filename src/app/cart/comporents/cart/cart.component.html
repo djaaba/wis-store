@@ -7,9 +7,9 @@
     </ng-container>
 
     <div *ngIf="itemsCart.length" class="cart__container">
-        <p class="cart__total-price">
+        <h2 class="cart__total-price">
             Вы добавили товары на сумму: {{ price }}
-        </p>
+        </h2>
         <button class="cart__button"  routerLink="/order-sheet">Оформить заказ</button>
     </div>
 </div>

@@ -8,9 +8,9 @@ import { Customer } from '../../customer';
   styleUrls: ['./order-sheet.component.scss']
 })
 export class OrderSheetComponent implements OnInit {
-
-  deliveryPoints = ['Доставка из магазина', 'Доставка из-за рубежа', 'Самовывоз'];
-  data = new Customer("", "", "", "", "", "");
+  deliverySelect = ['Доставка', 'Самовывоз'];
+  storePoints = ['Сервеный', 'Западный', 'Центр'];
+  data = new Customer("", "", "", "", "", "", "");
   submitted = false;
 
   constructor() { }

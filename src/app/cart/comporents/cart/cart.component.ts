@@ -11,7 +11,6 @@ export class CartComponent implements OnInit {
   constructor(
     public productService: ProductService
     ) { }
-  // В чем отличие указывать private/public для проекта?
 
   ngOnInit(): void {
   }
@@ -19,8 +18,6 @@ export class CartComponent implements OnInit {
   getNumber(value: any){
     return this.productService.getNiceNum(value) + " руб";
   }
-
-  // как правильней функцией или геттером?
 
   get price(): string {
     let sum = this.productService.itemsCart.reduce(function (accumuator, currentValue) {

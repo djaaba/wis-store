@@ -43,8 +43,8 @@ export class ProductListComponent implements OnInit {
   }
 
   addToCart(product: Product, event: any): void {
-    event.stopPropagation();
     this.productService.addToCart(product)
+    event.stopPropagation();
   }
 
   getNumber(value: any){
