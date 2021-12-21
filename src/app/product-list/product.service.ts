@@ -5,30 +5,18 @@ import { Product, products } from './products';
   providedIn: 'root'
 })
 export class ProductService {
-  itemsCart: Product[] = [];
+  itemsCart: Number[] = [];
+  itemsCart1: Product[] = [];
   itemsFavorite: Product[] = [];
-
   constructor() { }
 
   addToCart(product: Product) {
-    // if (this.itemsCart.length){
-    //   if (!this.itemsCart.includes(product)){
-    //     let index = this.itemsCart.indexOf(product);
-    //     this.itemsCart[index].counter++;
-    //   }else{
-    //     this.itemsCart.push(product)
-    //   }
-    // }else{
-    //   this.itemsCart.push(product)
-    // }
-
-    if (!this.itemsCart.includes(product)) {
-      this.itemsCart.push(product);
-      let index = this.itemsCart.indexOf(product);
-      this.itemsCart[index].counter++;
-    } else {
-      let index = this.itemsCart.indexOf(product);
-      this.itemsCart[index].counter++;
+    if (this.itemsCart.includes(product.price)){
+      product.counter++;
+      console.log(product.counter)
+    }else{
+      this.itemsCart.push(product.price);
+      console.log(this.itemsCart)
     }
   }
 

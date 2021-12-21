@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, Input } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Product } from '../../products';
+import { Product, products } from '../../products';
 
 import { ProductService } from '../../product.service';
 
@@ -11,7 +11,7 @@ import { ProductService } from '../../product.service';
 })
 export class DialogComponent implements OnInit {
 
-  @Input() itemsCart: Product[] = this.productService.itemsCart;
+  @Input() itemsCart: Number[] = this.productService.itemsCart;
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
     private productService: ProductService,
@@ -25,6 +25,9 @@ export class DialogComponent implements OnInit {
 
   addToCart(product: Product): void {
     this.productService.addToCart(product);
+
+    console.log(product)
+
     this.dialogRef.close();
   }
 

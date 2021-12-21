@@ -2,13 +2,13 @@
     <ng-container *ngIf="!itemsCart.length">
         <h1 class="cart__empty">Ваша корзина пока пустая!</h1>
     </ng-container>
-    <ng-container *ngFor="let item of itemsCart">
+    <ng-container *ngFor="let item of itemsCart1">
         <app-dialog-card [item]="item"></app-dialog-card>
     </ng-container>
 
     <div *ngIf="itemsCart.length" class="cart__container">
         <h2 class="cart__total-price">
-            Вы добавили товары на сумму: {{ price }}
+            <!-- Вы добавили товары на сумму: {{ price }} -->
         </h2>
         <button class="cart__button"  routerLink="/order-sheet">Оформить заказ</button>
     </div>
